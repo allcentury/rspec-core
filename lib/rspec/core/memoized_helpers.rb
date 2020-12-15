@@ -78,7 +78,7 @@ module RSpec
       # @note If you are using RSpec's newer expect-based syntax you may
       #       want to use `is_expected.to` instead of `should`.
       def should(matcher=nil, message=nil)
-        RSpec::Expectations::PositiveExpectationHandler.handle_matcher(subject, matcher, message)
+        is_expected.to(matcher, message)
       end
 
       # Just like `should`, `should_not` delegates to the subject (implicit or
@@ -97,7 +97,7 @@ module RSpec
       # @note If you are using RSpec's newer expect-based syntax you may
       #       want to use `is_expected.to_not` instead of `should_not`.
       def should_not(matcher=nil, message=nil)
-        RSpec::Expectations::NegativeExpectationHandler.handle_matcher(subject, matcher, message)
+        is_expected.not_to(matcher, message)
       end
 
       # Wraps the `subject` in `expect` to make it the target of an expectation.
